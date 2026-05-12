@@ -1,0 +1,39 @@
+/* index.css or App.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+  
+  #center {
+    height: 100vh;
+  
+    display: flex;
+    flex-direction: column;
+  
+    justify-content: center;
+    align-items: center;
+  
+    gap: 20px;
+  
+    background-color: white;
+  }
+  
+  button {
+    padding: 12px 24px;
+  
+    border: none;
+    border-radius: 8px;
+  
+    background-color: black;
+    color: white;
+  
+    cursor: pointer;
+  
+    font-size: 16px;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
