@@ -1,38 +1,62 @@
 const mongoose = require("mongoose");
 
-const orderSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
 
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true
-  },
-
-  items: [
-    {
-      product: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product"
+    items: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        name: String,
+        price: Number,
+        quantity: Number,
+        image: String,
+    
+        seller: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+    
+        itemStatus: {
+          type: String,
+          enum: ["Pending", "Paid", "Shipped", "Delivered"],
+          default: "Pending",
+        },
       },
+    ],
 
-      name: String,
+    shippingAddress: {
+      fullName: { type: String, required: true },
+      street: { type: String, required: true },
+      city: { type: String, required: true },
+      province: { type: String, required: true },
+      postalCode: { type: String, required: true },
+      country: { type: String, required: true },
+    },
 
-      price: Number,
+    totalAmount: {
+      type: Number,
+      required: true,
+    },
 
-      quantity: Number
-    }
-  ],
+    status: {
+      type: String,
+      enum: ["Pending", "Paid", "Shipped", "Delivered"],
+      default: "Pending",
+    },
 
-  totalPrice: {
-    type: Number,
-    required: true
+    stripeSessionId: String,
   },
-
-  isPaid: {
-    type: Boolean,
-    default: false
-  }
-
-}, { timestamps: true });
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Order", orderSchema);

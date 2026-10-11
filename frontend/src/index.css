@@ -1,58 +1,94 @@
+/* Base styles & reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#center {
-  height: 25vh;
-  width: 50vh;
+/* Full-width React root container */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
+/* Centered card component */
+#center {
+  width: min(90%, 24rem);
+  min-height: 12rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
-
-  background-color: #98FF98;
-
-  border: 4px solid black;
+  background-color: #98ff98;
+  border: 4px solid #000000;
   border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
+/* Base button styles */
 .button {
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Primary Action / Sign Up Button */
 .signupButton {
-  background-color: blue;
-  color: white;
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
-/* different button */
+.signupButton:hover {
+  background-color: #1d4ed8;
+}
+
+/* Secondary Action / Sign In Link Button */
 .signinButton {
-  color: blue;
-  background: none;
+  background: transparent;
+  color: #2563eb;
   padding: 0;
-  
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
+.signinButton:hover {
+  color: #1d4ed8;
+}
+
+/* Sign-in prompt layout */
 .signincontainer {
   display: flex;
   align-items: center;
-  gap: 5px;
-  margin-top: 10px;
-  align: bottom;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.9rem;
 }
 
+/* Global button interactivity & accessibility */
 button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }

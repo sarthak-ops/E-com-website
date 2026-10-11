@@ -8,8 +8,12 @@ const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const authRoutes = require("./routes/authRoutes");
+const stripeRoutes = require("./routes/stripeRoutes");
+const webhookRoutes = require("./routes/webhookRoutes");
 
 const app = express();
+
+app.use("/api/webhooks/stripe", webhookRoutes);
 
 // middleware
 app.use(express.json());
@@ -38,6 +42,8 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.use("/api/payments", paymentRoutes);
+
+app.use("/api/stripe", stripeRoutes);
 
 // connect DB
 mongoose.connect(process.env.MONGO_URI)

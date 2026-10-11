@@ -23,6 +23,12 @@ const productSchema = new mongoose.Schema({
   stock: {
     type: Number,
     default: 0
+  },
+
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   }
 
 }, { timestamps: true });

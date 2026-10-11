@@ -1,0 +1,99 @@
+/* Custom CSS Variables */
+:root {
+  --nav-bg: #1f2937;
+  --nav-text: #ffffff;
+  --nav-link-hover: #9ca3af;
+  --btn-danger: #ef4444;
+  --btn-danger-hover: #dc2626;
+  --nav-height: 64px;
+}
+
+/* Sticky Navbar Container */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1.5rem;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.navbar-logo {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
+}
+
+/* Links Wrapper */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual Link Styling */
+.navbar-link {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s ease-in-out;
+}
+
+.navbar-link:hover {
+  color: var(--nav-link-hover);
+}
+
+.navbar-link.active {
+  color: #60a5fa; /* Modern blue highlight for active route */
+  font-weight: 600;
+}
+
+/* Logout Button Styling */
+.logout-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.875rem;
+  background-color: var(--btn-danger);
+  color: var(--nav-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, transform 0.1s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--btn-danger-hover);
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+}
+
+/* Accessibility Focus States */
+.navbar-link:focus-visible,
+.logout-btn:focus-visible,
+.navbar-logo:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
